@@ -2,45 +2,49 @@
 target/
 *.jar
 *.war
-*.ear
 *.zip
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
 
 # IDE
 .idea/
-.vscode/
 *.iml
 *.iws
 *.ipr
-.classpath
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Java
+*.class
+*.classpath
 .project
 .settings/
+bin/
+out/
 
-# OS
-.DS_Store
-Thumbs.db
+# Database
+db.properties
+*.db
+*.sqlite
 
 # Logs
 *.log
 logs/
 
-# Database
-*.db
-*.sqlite
-
-# Environment
-.env
-.env.local
-
 # Build
-build/
-dist/
 .gradle/
+build/
 
-# Node (if needed)
+# Node
 node_modules/
-package-lock.json
+npm-debug.log
 
-# IDE backup
-*~
-*.swp
-*.swo
+# OS
+.DS_Store
+Thumbs.db
