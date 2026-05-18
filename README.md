@@ -1,149 +1,217 @@
-# 📚 Cahier de Texte Pédagogique
+# Cahier de Texte Pédagogique
 
-## Application de Gestion Numérique du Cahier de Texte
+## 🎯 Description
 
-### 🎯 Objectif
-Application desktop profesionnelle pour la gestion numérique du cahier de texte pédagogique avec génération automatique de fiches de suivi pédagogique.
+Application desktop Java professionnelle pour la gestion numérique du cahier de texte avec génération automatique de fiches de suivi pédagogique.
 
-### 🛠️ Technologies Utilisées
-- **Langage** : Java 17+
-- **Interface** : JavaFX 21 + FXML + CSS
-- **Base de données** : MySQL 8.0
-- **Gestion des dépendances** : Maven
-- **PDF** : iText 7
-- **Sécurité** : BCrypt
-- **Tests** : JUnit 4
-- **Logs** : SLF4J + Logback
+## 🚀 Caractéristiques
 
-### 👥 Rôles Utilisateurs
-1. **Chef de Département** : Gestion complète
-2. **Enseignant** : Gestion des séances
-3. **Responsable de Classe** : Validation des séances
+### Authentification & Sécurité
+- ✅ Authentification sécurisée avec BCrypt
+- ✅ Gestion des rôles (Chef de département, Enseignant, Responsable de classe)
+- ✅ Validation des sessions
+- ✅ Logout sécurisé
 
-### 🚀 Installation
+### Fonctionnalités Principales
 
-#### Prérequis
-- JDK 17+
+#### Chef de Département
+- Gestion des enseignants (CRUD complet)
+- Gestion des responsables de classe
+- Gestion des classes et matières
+- Assignation des cours
+- Validation des comptes
+- Génération des fiches PDF
+- Dashboard statistique
+- Consultation globale des séances
+
+#### Enseignant
+- Visualisation de ses cours
+- Ajout/modification/suppression de séances
+- Gestion des contenus et observations
+- Consultation de l'historique
+- Génération de rapports
+- Export PDF
+
+#### Responsable de Classe
+- Consultation du cahier de texte
+- Validation/rejet des séances
+- Ajout de commentaires
+- Suivi de la progression
+- Filtrage des données
+
+### Interface Utilisateur
+- Design moderne et professionnel
+- Interface responsive
+- Animations fluides
+- Thème moderne avec palette couleurs professionnelle
+- Dashboard administratif
+- Tableaux stylisés
+- Icônes professionnelles
+
+### Génération de Documents
+- Génération PDF avec iText
+- Fiches de suivi pédagogique
+- Rapports d'enseignant
+- Statistiques formatées
+- Mise en page professionnelle
+
+## 📋 Prérequis
+
+- Java 17 ou supérieur
 - Maven 3.8+
 - MySQL 8.0+
+- IDE : IntelliJ IDEA ou VS Code
 
-#### Étapes
-1. Cloner le repository
+## 🛠️ Installation
+
+### 1. Cloner le repository
 ```bash
 git clone https://github.com/bacar221/cahier-texte-pedagogique.git
 cd cahier-texte-pedagogique
 ```
 
-2. Configurer la base de données
+### 2. Configuration MySQL
+
+**Créer la base de données :**
 ```bash
-mysql -u root -p < database/schema.sql
-mysql -u root -p < database/data.sql
+mysql -u root -p < src/main/resources/database/schema.sql
 ```
 
-3. Mettre à jour la configuration
-```
-Modifier : src/main/resources/database.properties
+### 3. Configuration de l'application
+
+Modifier `src/main/resources/config/database.properties` :
+```properties
+db.host=localhost
+db.port=3306
+db.name=cahier_texte_pedagogique
+db.user=root
+db.password=votre_mot_de_passe
 ```
 
-4. Compiler le projet
+### 4. Build Maven
 ```bash
-mvn clean compile
+mvn clean install
 ```
 
-5. Lancer l'application
+### 5. Lancer l'application
 ```bash
 mvn javafx:run
 ```
 
-### 📋 Comptes de Test
-
-**Chef de Département**
-- Email : admin@school.com
-- Mot de passe : admin123
-
-**Enseignant**
-- Email : prof@school.com
-- Mot de passe : prof123
-
-**Responsable de Classe**
-- Email : responsable@school.com
-- Mot de passe : resp123
-
-### 📂 Structure du Projet
-```
-src/main/java/com/pedagogie/
-├── app/                    # Point d'entrée
-├── controller/             # Contrôleurs MVC
-├── model/                  # Modèles de données
-├── service/                # Couche métier
-├── repository/             # Accès aux données
-├── dao/                    # Data Access Objects
-├── database/               # Gestion BD
-├── security/               # Authentification
-├── utils/                  # Utilitaires
-├── config/                 # Configuration
-└── exception/              # Exceptions personnalisées
+Ou avec JAR :
+```bash
+mvn clean package
+java -jar target/cahier-texte-pedagogique-1.0.0.jar
 ```
 
-### ✨ Fonctionnalités Principales
+## 👤 Comptes de Test
 
-#### Chef de Département
-- ✅ Gestion des utilisateurs
-- ✅ Gestion des classes et matières
-- ✅ Assigner des cours
-- ✅ Valider les comptes
-- ✅ Voir les statistiques globales
-- ✅ Générer les fiches PDF
-- ✅ Consulter toutes les séances
+### Chef de Département
+- Email : `admin@school.com`
+- Mot de passe : `admin123`
 
-#### Enseignant
-- ✅ Voir ses cours
-- ✅ Ajouter une séance
-- ✅ Modifier une séance non validée
-- ✅ Consulter l'historique
-- ✅ Générer ses rapports PDF
-- ✅ Export des données
+### Enseignant
+- Email : `prof@school.com`
+- Mot de passe : `prof123`
 
-#### Responsable de Classe
-- ✅ Consulter le cahier de texte
-- ✅ Valider ou rejeter une séance
-- ✅ Ajouter des commentaires
-- ✅ Voir l'avancement du programme
+### Responsable de Classe
+- Email : `responsable@school.com`
+- Mot de passe : `resp123`
 
-### 📊 Fonctionnalités Avancées
-- 🔐 Authentification sécurisée (BCrypt)
-- 🎨 Interface moderne et responsive
-- 📄 Génération PDF automatique
-- 🔍 Recherche dynamique et filtrage
-- 📈 Tableaux avec pagination et tri
-- 🔔 Notifications et alertes
-- 📝 Logs système complets
-- 🌙 Support pour mode sombre
-- 📊 Graphiques statistiques
-- 💾 Sauvegarde automatique
+## 📁 Structure du Projet
 
-### 🧪 Tests Unitaires
+```
+src/main/java/com/cahiertexte/
+├── app/                  # Point d'entrée de l'application
+├── model/                # Modèles de données
+├── controller/           # Contrôleurs
+├── service/              # Logique métier
+├── repository/           # Accès aux données
+├── dao/                  # Data Access Objects
+├── database/             # Gestion base de données
+├── utils/                # Utilitaires
+├── security/             # Sécurité et authentification
+├── view/                 # Vues et composants UI
+└── config/               # Configuration
+
+src/main/resources/
+├── fxml/                 # Fichiers FXML (vues)
+├── css/                  # Feuilles de style
+├── config/               # Fichiers de configuration
+└── database/             # Scripts SQL
+```
+
+## 🏗️ Architecture
+
+- **Pattern MVC** : Séparation claire entre Modèle, Vue et Contrôleur
+- **Principes SOLID** : Code maintenable et extensible
+- **Programmation OOP** : Classes bien structurées et hiérarchisées
+- **Couche service** : Logique métier centralisée
+- **Repository Pattern** : Abstraction de l'accès aux données
+
+## 📊 Base de Données
+
+### Tables principales
+- `utilisateurs` : Gestion des utilisateurs
+- `enseignants` : Profils des enseignants
+- `responsables_classe` : Responsables de classes
+- `classes` : Informations des classes
+- `cours` : Définition des cours
+- `seances` : Séances pédagogiques
+- `validations` : Historique des validations
+
+## 🧪 Tests Unitaires
+
 ```bash
 mvn test
 ```
 
-### 📦 Générer le JAR exécutable
-```bash
-mvn package
-java -jar target/cahier-texte-pedagogique-1.0.0.jar
-```
+Tests disponibles pour :
+- Authentification
+- CRUD utilisateurs
+- CRUD séances
+- Génération PDF
+- Validations métier
 
-### 📖 Documentation
-- `docs/ARCHITECTURE.md` : Architecture du projet
-- `docs/API.md` : Documentation API
-- `docs/MANUAL.md` : Manuel utilisateur
-- `docs/DIAGRAMMES.md` : Diagrammes UML
+## 📦 Dépendances Principales
 
-### 👨‍💼 Auteur
-Bacar221
+- **JavaFX 21.0.1** : Interface graphique
+- **MySQL Connector 8.0.33** : Base de données
+- **iText 7.2.5** : Génération PDF
+- **JBCrypt 0.4** : Hashage sécurisé
+- **SLF4J/Logback** : Logging
+- **JUnit 5** : Framework de test
 
-### 📜 Licence
-MIT License
+## 🔒 Sécurité
 
-### 📞 Support
-Pour toute question ou problème, ouvrir une issue sur GitHub.
+- Mots de passe hashés avec BCrypt
+- Validation des entrées utilisateur
+- Gestion des sessions
+- Requêtes préparées (protection SQL Injection)
+- Contrôle d'accès par rôle
+
+## 📝 Documentation
+
+- Voir `docs/ARCHITECTURE.md` pour détails architecture
+- Voir `docs/USER_GUIDE.md` pour guide utilisateur
+- Voir `docs/DEVELOPER_GUIDE.md` pour guide développeur
+
+## 🤝 Contribution
+
+Pull requests bienvenues. Pour les modifications importantes, ouvrir d'abord une issue.
+
+## 📄 Licence
+
+Projet académique - Tous droits réservés © 2026
+
+## 👨‍💻 Auteur
+
+bacar221
+
+## 📞 Support
+
+Pour toute question ou problème, créer une issue sur GitHub.
+
+---
+
+**Développé pour une soutenance universitaire professionnelle**
